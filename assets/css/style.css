@@ -1,0 +1,391 @@
+/* 快乐魔仙数字世界 - 主样式文件 */
+
+/* 基础重置和变量 */
+:root {
+    --primary-color: #4a4aff;
+    --secondary-color: #8a2be2;
+    --accent-color: #ff6bcb;
+    --success-color: #00cc88;
+    --bg-dark: #0a0a2a;
+    --bg-medium: #1a1a3a;
+    --bg-light: #2a2a4a;
+    --text-primary: #e0e0ff;
+    --text-secondary: #a0a0ff;
+    --border-color: #3a3a8a;
+    --shadow-color: rgba(74, 74, 255, 0.3);
+    --glow-pink: rgba(255, 107, 203, 0.5);
+    --glow-blue: rgba(74, 74, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 0, 30, 0.7);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 30px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, var(--glow-pink) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, var(--glow-blue) 0%, transparent 50%);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px var(--glow-pink);
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 统计区域 */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: rgba(30, 30, 70, 0.6);
+    border-radius: 10px;
+    min-width: 150px;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+.stat-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* 世界地图区域 */
+.world-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.region {
+    background: rgba(20, 20, 50, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.region:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.region::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--region-color), transparent);
+}
+
+.region h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--region-color);
+}
+
+.region-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* 时间线样式 */
+.timeline {
+    background: rgba(20, 20, 50, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.timeline h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(40, 40, 80, 0.5);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+}
+
+.timeline-time {
+    font-weight: bold;
+    color: var(--primary-color);
+    min-width: 120px;
+}
+
+.timeline-event {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* 交互演示区域 */
+.interactive-demo {
+    background: rgba(20, 20, 50, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.interactive-demo h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.demo-controls {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.demo-output {
+    background: rgba(0, 0, 20, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    min-height: 100px;
+    border: 1px solid #2a2a6a;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+/* 音频播放器样式 */
+.audio-player {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(30, 30, 70, 0.6);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.audio-info {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    background: rgba(0, 0, 30, 0.7);
+    border-radius: 15px;
+    border-top: 2px solid var(--primary-color);
+}
+
+.magic-text {
+    animation: glow 2s ease-in-out infinite alternate;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color); }
+    to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .world-map {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2.2em;
+    }
+    
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .demo-controls {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* 加载动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--text-secondary);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 进度条样式 */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+/* 工具提示 */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--bg-medium);
+    color: var(--text-primary);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
